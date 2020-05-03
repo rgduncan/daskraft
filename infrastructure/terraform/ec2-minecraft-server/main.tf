@@ -1,5 +1,13 @@
+provider "aws" {
+  region = "us-west-2"
+  shared_credentials_file = "~/.aws/credentials"
+  profile                 = "personal"
+}
+
 module "minecraft" {
   source = "git@github.com:darrelldavis/terraform-aws-minecraft.git?ref=master"
+
+  bucket_name = "daskraft-prod-r41heqls7z4p"
 
   // VPC
   vpc_id = "vpc-02513a5bde7515caa"
@@ -14,7 +22,7 @@ module "minecraft" {
   // App settings - Minecraft
   mc_port = 25565
   mc_root = "/home/minecraft"
-  mc_version = "latest"
+  mc_version = "1.15.2"
   mc_backup_freq = 5
 
   // JVM settings
@@ -27,5 +35,5 @@ module "minecraft" {
   associate_public_ip_address = true
 //  ami = ""
   instance_type = "t3a.small"
-  allowed_cidrs = ""
+//  allowed_cidrs = "0.0.0.0/32"
 }

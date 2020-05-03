@@ -23,8 +23,19 @@ This uses the [Terraform VPC module](https://github.com/terraform-aws-modules/te
 ```shell script
 cd ./infrastructure/terraform/vpc/
 terraform get
+terraform init
 terraform plan
 terraform apply
 ```
 
 ### Server
+
+The server deployment is handled by a minecraft [module](https://github.com/darrelldavis/terraform-aws-minecraft).
+
+```shell script
+cd ./infrastructure/terraform/vpc/
+terraform get
+terraform init
+terraform plan
+terraform apply
+```
