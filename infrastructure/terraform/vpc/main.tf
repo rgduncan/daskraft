@@ -1,3 +1,11 @@
+terraform {
+  backend s3 {
+    bucket = "rgduncan-terraform-state"
+    key = "infrastructure/vpc.tfstate"
+    region = "us-west-2"
+  }
+}
+
 provider "aws" {
   region = "us-west-2"
   shared_credentials_file = "~/.aws/credentials"
