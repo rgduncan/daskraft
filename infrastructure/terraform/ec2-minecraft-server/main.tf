@@ -34,6 +34,6 @@ module "minecraft" {
   // https://aws.amazon.com/ec2/instance-types/
   associate_public_ip_address = true
 //  ami = ""
-  instance_type = "t3a.small"
+  instance_type = "t3.small"
 //  allowed_cidrs = "0.0.0.0/32"
 }

@@ -1,0 +1,4 @@
+FROM itzg/minecraft-server:latest
+ENV TYPE=SPIGOT VERSION=1.8 EULA=TRUE
+EXPOSE 25565 25565
+CMD /start
