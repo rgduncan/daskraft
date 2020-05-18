@@ -1,3 +1,12 @@
+terraform {
+  backend s3 {
+    bucket = "rgduncan-terraform-state"
+    key = "infrastructure/daskraft/ec2-mc.tfstate"
+    region = "us-west-2"
+    profile = "personal"
+  }
+}
+
 provider "aws" {
   region = "us-west-2"
   shared_credentials_file = "~/.aws/credentials"
@@ -7,11 +16,11 @@ provider "aws" {
 module "minecraft" {
   source = "git@github.com:darrelldavis/terraform-aws-minecraft.git?ref=master"
 
-  bucket_name = "daskraft-prod-r41heqls7z4p"
+  bucket_name = "daskraft-dev-r41heqls7z4p"
 
   // VPC
-  vpc_id = "vpc-02513a5bde7515caa"
-  subnet_id = "subnet-021599521e089b04b"
+  vpc_id = "vpc-0dcafbb740907b5b4"
+  subnet_id = "subnet-09d13332dc061eaab"
 
   // Tags
   name = "minecraft-1"
@@ -30,10 +39,8 @@ module "minecraft" {
   java_mx_mem = "1G"
 
   // Instance vars
-  // https://aws.amazon.com/ec2/pricing/on-demand/
-  // https://aws.amazon.com/ec2/instance-types/
   associate_public_ip_address = true
-//  ami = ""
   instance_type = "t3.small"
+//  ami = ""
 //  allowed_cidrs = "0.0.0.0/32"
 }

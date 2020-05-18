@@ -3,6 +3,7 @@ terraform {
     bucket = "rgduncan-terraform-state"
     key = "infrastructure/vpc.tfstate"
     region = "us-west-2"
+    profile = "personal"
   }
 }
 
@@ -18,6 +19,7 @@ data "aws_security_group" "default" {
 }
 
 module "vpc" {
+  # https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/
   source  = "terraform-aws-modules/vpc/aws"
   version = "2.33.0"
 
